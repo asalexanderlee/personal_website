@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  
+  <style>
+    
+    body{
+      /*background: url("http://www.intrawallpaper.com/static/images/recycled_texture_background_by_sandeep_m-d6aeau9_PZ9chud.jpg") no-repeat center fixed;
+      background-size: cover;*/
+      background-color:#141452;
+    }
+    *{
+      font-family:"avenir";
+    }
+    #main_body{
+      overflow:scroll;
+      height:1000px;
+    }
+    
+    #option_menu{
+      width:100%;
+      background-color:#cccccc;
+      height:17%;
+      position:fixed;
+      margin:0px;
+      bottom:0px; 
+      box-shadow:-2px -2px 20px black;
+      opacity:0.9;
+      display:inline;
+      transition:0.7s;
+      text-align:center;
+    }
+    .close_icon{
+      width:30px;
+      height:30px;
+      margin:3px;
+      cursor:pointer;
+    }
+    .option{
+      border:1px solid #a6a6a6;
+      border-radius:50%;
+      box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      width:80px;
+      height:80px;
+      padding:5px;
+      background-color: #a6a6a6;
+      text-align:center;
+      position:fixed;
+      bottom:2.6%;
+      opacity:1.0;
+      transition:0.4s;
+    }
+    .option:hover{
+      background-color:#999999;
+      cursor:pointer;
+      color:#4747d1;
+    }
+    #contact_info{
+      left:5%;
+    }
+    #education{
+      left:25%;
+    }
+    #experience{
+      left:45%;
+    }
+    #interests{
+      left:65%;
+    }
+    #skills{
+      left:85%;
+    }
+    #hidden_option_menu{
+      width:100%;
+      height:2.5%;
+      position:fixed;
+      background-color:#cccccc;
+      bottom:0px;
+      display:none;
+      opacity:0.9;
+      text-align:center;
+      padding:5px;
+      box-shadow:-2px -2px 20px black;
+    }
+    #up_arrow{
+      width:20px;
+      height:20px;
+      padding:5px;
+      cursor:pointer;
+      display:none;
+    }
+    #down_arrow{
+      width:20px;
+      height:20px;
+      padding:5px;
+      cursor:pointer;
+    }
+    #ashley_al_div{
+      background-color:white;
+      opacity:0.5;
+      text-align:center;
+      padding:10px;
+      width:340px;
+      position:fixed;
+      left:37%;
+      margin-top:1.5%;
+      font-size:26px;
+    }
+    #description{
+      background-color:white;
+      opacity:0.5;
+      text-align:center;
+      padding:25px;
+      margin-top:150px;
+      margin-right:5%;
+      margin-left:55%;
+      width:35%;
+    }
+    #general_info_div{
+      background-color:rgb(41,41,103);
+      opacity:0.7;
+      width:40%;
+      position:fixed;
+      left:45px;
+      top:130px;
+      height:50%;
+      padding:20px;
+      padding-bottom:80px;
+      box-shadow: 2px 2px 10px #000000;
+    }
+    .header_descript{
+      background-color:black;
+      color:#ffb3b3;
+      opacity:0.8;
+      padding:10px;
+      text-align:center;
+      box-shadow:inset 0 0 10px #000000;
+      font-size:17px;      
+      border-bottom:3px solid #595959;
+    }
+    .node_descript{
+      background-color:black;
+      padding:10px;
+      text-align:center;
+      opacity:0.8;
+      color:white;
+      margin:0 auto;
+    }
+    #title{
+      width:300px;
+      margin:0 auto;
+      margin-top:20px;
+      margin-bottom:0px;
+    }
+    #gpa{
+      width:300px;
+      margin-top:0px;
+      margin-bottom:15px;
+    }
+    #major, #minor{
+      width:200px;
+      margin-bottom:0px;
+      display:inline-block;
+      margin-left:5%;
+    }
+    #minor{
+      margin-left:10%;
+    }
+    #major_gpa, #minor_gpa{
+      width:200px;
+      display:inline-block;
+      margin-bottom:5px;
+      margin-left:5%;
+    }
+    #minor_gpa{
+      margin-left:10%;
+    }
+    #edu{
+      margin:5%;
+      margin-bottom:0px;
+      margin-top:35px;
+    }
+    .edu_node{
+      margin:5%;
+      margin-bottom:0px;
+      margin-top:0px;
+      padding:17px;
+    }
+    #dav_college_acc{
+      margin-top:0px;
+      margin-left:57%;
+      margin-right:7.5%;
+      box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding:0px;
+      margin-bottom:0px;
+      width:500px;
+    }
+    #dav-college-img{
+      width:500px;
+      height:120px;
+      border:1px solid white;
+      border-radius:4px;
+      margin-bottom:0px;
+      cursor:pointer;
+    }
+    #inst-touraine-acc{
+      margin-left:57%;
+      margin-right:7.5%;
+      margin-top:0px;
+      box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding:0px;
+      height:120px;
+      width:500px;
+      margin-bottom:600px;
+    }
+    #inst-touraine-img{
+      width:500px;
+      height:120px;
+      border:1px solid black;
+      border-radius:5px;
+      margin-top:0px;
+      cursor:pointer;
+    }
+    #northridge-acc{
+      box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding:0px;
+      margin-left:57%;
+      margin-right:7.5%;
+      height:120px;
+      width:500px;
+      /*margin-top:30px;*/
+      margin-bottom:600px;
+      z-index:-2;
+    }
+    #northridge-img{
+      background-color:#80bfff;
+      width:480px;
+      height:90px;
+      border-radius:5px;
+      font-size:60px;
+      margin-top:0px;
+      padding:10px;
+      padding-top:20px;
+      text-align:center;
+      z-index:-2;
+    }
+    #dav-college-acc-content{
+      height:0px;
+      /*display:none;*/
+      background-color:black;
+      text-align:center;
+      opacity:0.9;
+      color:white;
+      padding:10px;
+      position:relative;
+      z-index:-1;
+      transition:0.5s;
+      opacity:0.0;
+    }
+    #inst-touraine-acc-content{
+      height:0px;
+      /*display:none;*/
+      background-color:black;
+      text-align:center;
+      opacity:0.9;
+      color:white;
+      padding:10px;
+      position:relative;
+      z-index:-1;
+      transition:0.5s;
+      opacity:0.0;
+    }
+    
+  </style>
+  
+</head>
+<body>
+  <div id="main_body">
+  <p id="ashley_al_div">ASHLEY ALEXANDER-LEE</p>
+  
+  <div id="general_info_div">
+    <p id="title" class="header_descript">Student at Davidson College</p>
+    <p id="gpa" class="node_descript">GPA: 3.75</p>
+    <p id="major" class="header_descript">Major: Music</p>
+    <p id="minor" class="header_descript">Minor: Computer Science</p>
+    <p id="major_gpa" class="node_descript">GPA: 4.0</p>
+    <p id="minor_gpa" class="node_descript">GPA: 3.46</p>
+    <p class="header_descript" id="edu">Education</p>
+    <p class="node_descript edu_node">Davidson College in Davidson, NC</p>
+    <p class="node_descript edu_node">Institut de Touraine in Tours, France</p>
+    <p class="node_descript edu_node">Northridge High School in Tuscaloosa, AL</p>
+  </div>
+  <div id="descript_div">
+  <p id="description">I am a junior at Davidson College majoring in Music with a minor in Computer Science. I am interested in software design, computer graphics, app design, data analysis, and digital music composition. At Davidson, I have created and presented several music compositions, and I have contributed to a new tool to facilitate course planning. 
+<br><br><br>
+My current professional goal is to find a position, preferably in software development, that allows me to gain new coding skills as well as polish old ones. I believe that my creativity, passion for the subject, artistic background, and writing skills will be valuable to any organization that is not just looking for a coder, but also a critical thinker and designer. </p>
+  </div>
+  </div>
+  
+  <div id="option_menu">
+    <img src="https://cdn0.iconfinder.com/data/icons/glyphpack/26/double-arrow-down-512.png" id="down_arrow" onclick="
+    document.getElementById('option_menu').style.height = '3.1%';
+    var options = document.getElementsByClassName('option');
+    for (var i = 0; i < options.length; i++){
+      options[i].style.opacity = 0.0;
+    }
+    document.getElementById('down_arrow').style.display = 'none';
+    document.getElementById('up_arrow').style.display = 'inline';
+    ">
+    <img src="https://cdn0.iconfinder.com/data/icons/glyphpack/26/double-arrow-up-512.png" id="up_arrow" onclick="
+        document.getElementById('option_menu').style.height = '17%';
+        var options = document.getElementsByClassName('option');
+        for (var i = 0; i < options.length; i++){
+          options[i].style.opacity = 1.0;
+        }
+        document.getElementById('down_arrow').style.display = 'inline';
+        document.getElementById('up_arrow').style.display = 'none';                                                                                                        "/>
+    
+    <div id="contact_info" class="option">
+      <p style="margin-top:20px;">Contact Info</p>
+    </div>
+    <div id="education" class="option">
+      <p style="margin-top:27px;" onclick="window.scrollTo(0,850);">Education</p>
+    </div>
+    <div id="experience" class="option">
+      <p style="margin-top:27px;">Experience</p>
+    </div>
+    <div id="interests" class="option">
+      <p style="margin-top:27px;">Interests</p>
+    </div>
+    <div id="skills" class="option">
+      <p style="margin-top:27px;">Skills</p>
+    </div>
+  </div>
+  
+  
+  <div id="dav_college_acc">
+    <img src="http://collegesofusa.com/wp-content/uploads/2015/08/davidson-college.png" id="dav-college-img" onclick="toggleCoursework('dav-college-acc-content');">
+    <div id="dav-college-acc-content">
+      <p style="border-bottom:1px solid white;"><b>Important Coursework</b></p>
+      <p>Computer Organization</p>
+      <p>Data Structures</p>
+      <p>Intro to Digital Composition</p>
+      <p>Literary Analysis</p>
+      <p>Music Theory I, II</p>
+      <p>American Literature until the 20th c.</p>
+    </div>
+  </div>
+  <div id="inst-touraine-acc">
+    <img src="http://www.institutdetouraine.com/sites/default/files/styles/bandeau/public/ged/10.jpg?itok=dLttpt0Q" id="inst-touraine-img" onclick="toggleCoursework('inst-touraine-acc-content');">
+    <div id="inst-touraine-acc-content">
+      <p style="border-bottom:1px solid white;"><b>Important Coursework</b></p>
+      <p>Computer Organization</p>
+      <p>Data Structures</p>
+      <p>Intro to Digital Composition</p>
+      <p>Literary Analysis</p>
+      <p>Music Theory I, II</p>
+      <p>American Literature until the 20th c.</p>
+    </div>
+  </div>
+  <!--<div id="northridge-acc">
+    <div id="northridge-img"><div style="outline:10px double black;font-family:'Lucida Blackletter';">N</div></div>
+  </div>-->
+  
+  </div>
+  
+<script>
+  function toggleCoursework(contentID){
+     var curElem = document.getElementById(contentID);
+    if (curElem.style.opacity != 1.0){
+      curElem.style.height = '300px';
+      curElem.style.opacity = '1.0';
+    }
+    else{
+      curElem.style.height = '0px';
+      curElem.style.opacity = '0.0';
+    }
+    
+  }
+</script>
+</body>
+</html>
